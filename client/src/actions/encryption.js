@@ -42,7 +42,7 @@ export const setTlsConfig = (config) => async (dispatch, getState) => {
         response.private_key = atob(response.private_key);
 
         const dnsStatus = await apiClient.getGlobalStatus();
-        if (dnsStatus?.running) {
+        if (dnsStatus) {
             dispatch(dnsStatusSuccess(dnsStatus));
         }
 
